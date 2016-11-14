@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'dogefood_v2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': os.environ.get('DBENGINE', ''),
+        'NAME': os.environ.get('DBNAME', ''),
+        'USER': os.environ.get('DBUSER', ''),
+        'PASSWORD': os.environ.get('DBPSWD', ''),
+        'HOST': 'localhost',
+        'PORT': ''
     }
 }
 
