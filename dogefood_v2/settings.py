@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'dogefood_v2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get('DBENGINE', ''),
-        'NAME': os.environ.get('DBNAME', ''),
+        'NAME': os.environ.get('DBNAME2', ''),
         'USER': os.environ.get('DBUSER', ''),
         'PASSWORD': os.environ.get('DBPSWD', ''),
         'HOST': 'localhost',
