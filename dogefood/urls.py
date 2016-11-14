@@ -15,21 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.contrib.auth.models import User
-from rest_framework import serializers, viewsets, routers
+from dogefood.apps.pets.api import PetViewSet
+from rest_framework import routers
 
-
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('url', 'username', 'email', 'is_staff')
-
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+router.register(r'pets', PetViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
